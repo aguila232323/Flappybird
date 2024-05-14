@@ -236,6 +236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PipeVolocity: 0.7
+  timeToLive: 6
 --- !u!1 &9178455934867763201
 GameObject:
   m_ObjectHideFlags: 0

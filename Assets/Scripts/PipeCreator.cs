@@ -6,7 +6,6 @@ public class PipeCreator : MonoBehaviour
 {
     [SerializeField] private float maxTime = 1.5f;
     [SerializeField] private float heightRange = 0.45f;
-    [SerializeField] private GameObject _pipe;
     private float timer;
     void Start()
     {
@@ -29,8 +28,12 @@ public class PipeCreator : MonoBehaviour
     void createPipe()
     {
         Vector3 spawnerPosi = transform.position + new Vector3(0, Random.Range(-heightRange, heightRange));
-        GameObject pipe = Instantiate(_pipe,spawnerPosi,Quaternion.identity);
-        
-        Destroy(pipe,6f);
+        GameObject pipe2 = PipePool.instance.GetObjectPooled();
+
+        if (pipe2 != null )
+        {
+            pipe2.transform.position = spawnerPosi;
+            pipe2.SetActive(true);
+        }
     }
 }
